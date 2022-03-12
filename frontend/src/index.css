@@ -1,0 +1,41 @@
+/* @font-face {
+  font-family: 'AristaPro';
+  src: local('Arista Pro Alternate Regular')
+    url('./fonts/Arista-Pro/Arista-Pro-Alternate-SemiBold-trial.ttf');
+}
+
+main {
+  min-height: 80vh;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Dongle:wght@300;400&family=Roboto&display=swap');
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+@media print {
+  @page { 
+      size: landscape; 
+      margin: 1rem;
+      padding: 1rem;
+  }
+}

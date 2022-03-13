@@ -118,10 +118,12 @@ export const listMyOrders = () => async (dispatch, getState) => {
       }
   
       const { data } = await axios.get(`${backendUrl}/api/orders/myorders`, config)
-  
+      data.sort((a,b)=>{
+        return b.createdAt - a.createdAt;
+      })
       dispatch({
         type: ORDER_LIST_MY_SUCCESS,
-        payload: data,
+        payload: data.reverse(),
       })
     } catch (error) {
       const message =

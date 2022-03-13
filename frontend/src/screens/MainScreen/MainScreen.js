@@ -36,14 +36,14 @@ const FilterContainer = styled.div`
     margin-bottom: 1.5rem;
     z-index: 10;
     background-color: #f5f5f5;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     @media (min-width: 768px) and (max-width: 1024px){
         margin-bottom: 0.5rem;
     }
 `;
 const CategoryContainer = styled.div`
     position: sticky;
-    flex: 2.5;
+    flex: 1.5;
     top: 6rem;
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@ const CartContainer = styled.div`
     padding: 1rem 0rem;
     height: 25%;
     margin: 0rem 1rem 0rem 0rem;
-    flex:2.5;
+    flex:3.5;
     border-radius: 15px;
     margin-bottom: 2rem;
     @media screen and (min-width: 320px) and (max-width: 767px){

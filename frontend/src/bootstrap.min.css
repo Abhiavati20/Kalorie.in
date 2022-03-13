@@ -2141,9 +2141,7 @@ pre code {
   color: #919aa1;
   opacity: 1;
 }
-.form-control:disabled,
-.form-control[readonly] {
-}
+
 input[type='date'].form-control,
 input[type='time'].form-control,
 input[type='datetime-local'].form-control,

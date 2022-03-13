@@ -32,7 +32,7 @@ const DropDownContainer = styled("div")`
 `;
 
 const DropDownHeader = styled("div")`
-  padding: 0.25rem;
+  padding: 0.38rem 0.25rem;
   text-align: center;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     opacity: 0.8;
@@ -234,14 +234,15 @@ const Filter = ({isVeg,show,city}) => {
     return !show ? (
         <div>
         <Container >
-            <SearchBox/>
+            <SearchBox width1={'350px'}/>
             <Form.Group controlId='isVeg' className='d-flex mt-2' style={{width:window.innerWidth>1024?'20%':'50%',justifyContent:'space-evenly'}}>
                 <div 
                     style={{
                         backgroundColor:"white",
                         borderRadius:"10px",
-                        
-                        padding: "0.5rem 1rem",
+                        height:"4vh",
+                        padding: "0.45rem 2rem",
+                        minHeight:"2.3rem",
                         boxShadow: "0px 0px 10px 1px #e1e1e1",
                         // margin: '0rem 1rem'
                     }} 
@@ -249,20 +250,21 @@ const Filter = ({isVeg,show,city}) => {
                 >
                     <Form.Check
                         type='checkbox'
-                        label='Veg'
+                        checked={isVeg==='true'}
                         style={{borderRadius:"15px"}}
                         // onChange={(e) => handleChange(e)}
-                        onChange={()=>{addQuery("isVeg","true")}}
+                        onChange={()=>{isVeg==="true"?navigate('/'):addQuery("isVeg","true")}}
                         placeholder="veg"
                         // className="custom-checkbox"    
                     ></Form.Check>
+                    <label>Veg</label>
                 </div>
                 <div 
                     style={{
                         backgroundColor:"white",
                         borderRadius:"10px",
                         height:"4vh",
-                        padding: "0.45rem 0.5rem",
+                        padding: "0.45rem 2rem",
                         minHeight:"2.3rem",
                         boxShadow: "0px 0px 10px 1px #e1e1e1",
                     }}
@@ -270,14 +272,14 @@ const Filter = ({isVeg,show,city}) => {
                 >
                     <Form.Check
                         type='checkbox'
-                        label='Non-Veg'
+                        // label='Non-Veg'
                         checked={isVeg==='false'}
                         style={{borderRadius:"15px"}}
                         className="custom-checkbox"
-                        placeholder="nonveg"
-                        onChange={()=>{addQuery("isVeg","false")}}
+                        onChange={()=>{isVeg==="false"?navigate('/'):addQuery("isVeg","false")}}
                         // onChange={(e)=>handleChange(e)}
                     ></Form.Check>
+                    <label>Non Veg</label>
                 </div>
             </Form.Group>
             <DropDownContainer>
@@ -402,7 +404,7 @@ const Filter = ({isVeg,show,city}) => {
                                                 backgroundColor:"white",
                                                 borderRadius:"10px",
                                                 
-                                                padding: "0.5rem 1rem",
+                                                padding: "0.35rem 1rem",
                                                 boxShadow: "0px 0px 10px 1px #e1e1e1",
                                                 // margin: '0rem 1rem'
                                             }} 
@@ -423,7 +425,7 @@ const Filter = ({isVeg,show,city}) => {
                                                 backgroundColor:"white",
                                                 borderRadius:"10px",
                                                 height:"4vh",
-                                                padding: "0.45rem 0.5rem",
+                                                padding: "0.35rem 0.5rem",
                                                 minHeight:"2.3rem",
                                                 boxShadow: "0px 0px 10px 1px #e1e1e1",
                                             }}

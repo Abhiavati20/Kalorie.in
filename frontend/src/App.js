@@ -120,6 +120,5 @@ const App = () => {
 // about us
 // 1st para who are we ? 
 // 2nd para why choose us?
-
 export default App;
 

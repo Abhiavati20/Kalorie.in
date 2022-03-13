@@ -4,11 +4,8 @@ import Product from '../../components/Product/Product';
 const Container = styled.div`
     display: flex;
     flex-wrap:wrap;
-    /* flex-: inherit; */
-    flex-shrink: inherit;
-    justify-content: center;
-    
     width: 100%;
+    justify-content: center;
     @media screen and (max-width: 768px) {
         width: 100%;
         margin: 0;

@@ -272,6 +272,7 @@ input[type='checkbox'] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
+  background-color: #F5CB05;
 }
 textarea {
   overflow: auto;
@@ -3582,6 +3583,7 @@ input[type='button'].btn-block {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
+  background-color: #F5CB05;
 }
 .input-group {
   position: relative;
@@ -3689,6 +3691,7 @@ input[type='button'].btn-block {
 .input-group-text input[type='radio'],
 .input-group-text input[type='checkbox'] {
   margin-top: 0;
+  background-color: #F5CB05;
 }
 .input-group-lg > .form-control:not(textarea),
 .input-group-lg > .custom-select {
@@ -9916,4 +9919,20 @@ th {
 .card-title,
 .card-header {
   color: inherit;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #F5CB05!important;
+}
+
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #F5CB05, 0 0 0 0.2rem rgba(0, 255, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #F5CB05, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+  background-color: #F5CB05; 
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #F5CB05 !important
 }

@@ -17,9 +17,16 @@ const Container = styled.div`
     @media screen and (min-width: 320px) and (max-width: 767px){
         display: none;
     }
+    @media (min-width: 768px) and (max-width: 1024px){
+        text-align: left;
+    }
 `;
 const ItemsList = styled.div`
     width: 70%;
+    @media (min-width: 768px) and (max-width: 1024px){
+        width: 100%;
+        padding: 0.25rem;
+    }
 `;
 const Item = styled.div`
     display: flex;

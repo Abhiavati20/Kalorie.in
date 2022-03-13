@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaPhoneAlt,FaEnvelope,FaFacebook,FaInstagram } from 'react-icons/fa'
-import Footer from '../../components/Footer/Footer';
 import FormContainer from '../../components/FormContainer/FormContainer'
 
 const ContactUs = () => {
@@ -26,13 +25,7 @@ const ContactUs = () => {
             </div>
         </FormContainer>
         </div>
-        {
-            window.innerWidth > 767 && (
-                <span  style={{position:'fixed',left:'0',width:'100%',bottom:'0'}}>
-                    <Footer/>
-                </span>
-            )
-        }
+        
         </>
   )
 }

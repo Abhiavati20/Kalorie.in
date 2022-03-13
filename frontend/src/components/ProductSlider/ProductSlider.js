@@ -10,8 +10,8 @@ const ProductSlider = ({show}) => {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 3 // optional, default to 1.
+            items: 1,
+            slidesToSlide: 1 // optional, default to 1.
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -61,13 +61,13 @@ const ProductSlider = ({show}) => {
                 itemClass="carousel-item-padding-40-px"
             >
                 <div style={{ background: '#EEE' }}>
-                    <img src='/images/Website1.png' width="100%" height={show?"200px":"450px"}px alt="hello" />
+                    <img src='/images/Website1.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
                 </div>
                 <div style={{  background: '#EEE' }}>
-                    <img src='/images/Website3.png' width="100%" height={show?"200px":"450px"} alt="hello" />
+                    <img src='/images/Website3.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
                 </div>
                 <div style={{  background: '#EEE' }}>
-                    <img src='/images/Website2.png' width="100%" height={show?"200px":"450px"} alt="hello" />
+                    <img src='/images/coupon.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
                 </div>
                 
             </Carousel>

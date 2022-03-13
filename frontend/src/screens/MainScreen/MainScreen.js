@@ -9,75 +9,102 @@ import Cart                        from '../../components/Cart/Cart';
 import Filter                      from './Filter';
 import ProductSlider               from '../../components/ProductSlider/ProductSlider';
 
-import SearchBox                   from '../../components/SearchBox/SearchBox';
 import styled                      from "styled-components";
 import ProductsListScreen from './ProductsListScreen';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { keyframes} from 'styled-components';
 import { zoomInUp } from 'react-animations'
-import { FaCaretDown, FaCaretUp,FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import { getCity, usePosition } from '../../components/Navbar/usePosition';
 import Footer from '../../components/Footer/Footer';
+
+
 const Container = styled.div`
     display: flex;
-    justify-content: center;
-    margin: 0.5rem auto;
-    height: 100%;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        display: flex;
-        flex-direction: column;
-        margin: 0;
+    flex-direction: column;
+    
+`;
+const SecondContainer = styled.div`
+    display: flex;
+    box-sizing: border-box;
+    /* flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    flex-wrap: wrap; */
+    justify-content: space-evenly;
+`;
+const FilterContainer = styled.div`
+    position:sticky;
+    top: 0rem;
+    margin-bottom: 1.5rem;
+    z-index: 10;
+    background-color: #f5f5f5;
+    @media (min-width: 768px) and (max-width: 1024px){
+        margin-bottom: 0.5rem;
     }
 `;
-
 const CategoryContainer = styled.div`
-    flex: 2;
-    background-color: white;
-    border-radius:10px;
-    margin-left:1rem ;
-    width: 100%;
-    height: 7%;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 5px 5px #ebebeb;
-    >h3{
-        margin: 1rem 1rem 2rem;
-        text-align: center;
-        text-transform: capitalize;
-    }
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        display: none;
-
-    }
-`;
-
-const ProductsContainer = styled.div`
-    flex: 6;
-    width: 100%;
+    position: sticky;
+    flex: 2.5;
+    top: 5rem;
     display: flex;
     flex-direction: column;
-    padding-bottom: 5rem;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        flex: 1;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background-color: white;
+    align-items: center;
+    padding: 1rem 0rem;
+    height: 10%;
+    margin: 0rem 0rem 0rem 2rem;
+    border-radius: 15px;
+    margin-bottom: 5rem;
+    width: 15%;
+    @media screen and (min-width: 320px) and (max-width: 767px){
+        display: none;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        display: none;
+    }
+    
+`;
+const ProductsContainer = styled.div`
+    display: flex;
+    flex: 5.5;
+    height: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+    @media screen and (min-width: 320px) and (max-width: 767px){
         width: 100%;
-        margin: 0;
+        margin-bottom: 5rem;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        width: 50%;
     }
 `;
 const CartContainer = styled.div`
-    flex: 3;
+    position: sticky;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    overflow: hidden;
     background-color: white;
-    justify-content: center;
-    align-items: center;
-    border-radius:10px;
-    margin-right:1rem ;
-    width: 35%;
-    box-shadow: 0px 0px 5px 5px #ebebeb;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding: 1rem 0rem;
+    height: 25%;
+    margin: 0rem 1rem 0rem 0rem;
+    flex:2.5;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    @media screen and (min-width: 320px) and (max-width: 767px){
         display: none;
     }
-
+    @media (min-width: 768px) and (max-width: 1024px){
+        width: 50%;
+        margin: 0rem 0.5rem 0rem 0rem;
+    }
 `;
+
 export const TabLink = styled(NavLink)`
     color: black;
     margin: 0.5rem 1.5rem;
@@ -95,48 +122,71 @@ export const TabLink = styled(NavLink)`
     }
     
 `;
-
-export const DropDownContainer = styled("div")`
-    width: 40%;
-    margin: auto;
-    z-index: 10;
-`;
-export const DropDownHeader = styled("p")`
-    position:fixed;
-    left: 0;
-    right: 0;
-    width: 35%;
-    
-    /* top: 80%; */
-    bottom: 11%;
-    cursor: pointer;
-    color: white;
-    border: 3px solid #c3a321;
-    background-color: #c3a321;
-    outline: #F5CB05;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin: 0rem auto;
-    padding: 0.25rem 0.25rem;
-    border-radius: 10px;
-    @media screen and (min-width: 320px) and (max-width: 767px){
-        /* text-align: cente; */
+const DropDownContainer = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px)
+    {margin : 0.5rem auto;
+    width: 8rem;}
+    @media (min-width: 768px) and (max-width: 1024px){
+        /* top: 7.6rem; */
+        margin: 0.25rem 3rem;
+        width: 8rem;
     }
 `;
-export const DropDownListContainer = styled("div")`
-    position: fixed;
-    bottom: 50%;
-    left: 0;
-    right: 0;
-    width: 40%;
-    margin: 0rem auto;
+
+const DropDownHeader = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px){
     
+    
+        position: sticky;
+        left: 0;
+        right: 0;
+        width: 100%;
+        bottom: 10%;
+        cursor: pointer;
+        color: white;
+        border: 3px solid #c3a321;
+        background-color: #c3a321;
+        outline: #F5CB05;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0rem auto;
+        padding: 0.25rem 0.25rem;
+        border-radius: 10px;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        position: sticky;
+        right: 0;
+        width: 100%;
+        cursor: pointer;
+        color: white;
+        border: 3px solid #c3a321;
+        background-color: #c3a321;
+        padding: 0.25rem 0.25rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+`;
+
+const DropDownListContainer = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px){
+        position: sticky;
+        left: 0;
+        right: 0;
+        width: 40%;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        position: sticky;
+        left: 0%;
+        width: 50%;
+        margin: 0rem;
+    }
 `;
 const FadeInAnimation = keyframes`${zoomInUp}`;
 
 export const DropDownList = styled("ul")`
-    
+    @media screen and (min-width: 320px) and (max-width: 767px){
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -146,37 +196,40 @@ export const DropDownList = styled("ul")`
     font-size: 1rem;
     font-weight: 500;
     z-index: 10;
-    width: 40%;
+    width: 50%;
+    left: 0;
+right: 0;
+margin: 0 auto;
     animation: 1.5s ${FadeInAnimation};
     &:first-child {
         padding-top: 0.15rem;
     }
-    
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        display: flex;
+    flex-direction: column;
+    position: fixed;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10;
+    width: 20%;
+    animation: 1.5s ${FadeInAnimation};
+    &:first-child {
+        padding-top: 0.15rem;
+    }   
+    }
+
 `;
 
-export const ListItem = styled(Link)`
-    color: black;
-    margin: 0.25rem 0rem;
-    font-size: 1rem;
-    font-weight: 800;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: left;
-    &.all{
-        color: #F5CB05;
-        font-weight:bold;
-        text-decoration: none;
-    }
-    &:hover{
-        color: #F5CB05;
-        font-weight:bold;
-        text-decoration: none;
-    }
-    
+const ListItem = styled(Link)`
+  list-style: none;
+  z-index:20;
+  margin: 0rem 1rem;
 `;
-export const Marker = styled(FaMapMarkerAlt)`
-    color: #F5CB05;
-`;
+
 const HomeScreen = () => {
 
     const dispatch = useDispatch();
@@ -184,6 +237,8 @@ const HomeScreen = () => {
     const productList = useSelector((state) => state.productList)
     const { loading, error, products } = productList;
 
+    
+    
     
     const searchParams = new URLSearchParams(useLocation().search);
 
@@ -223,13 +278,53 @@ const HomeScreen = () => {
         
     };
     return (
-        <>
-            {!show &&  ( <ProductSlider products = {products} loading={loading} show={show}/>)}
-            <Container>
+        <Container>
+            <ProductSlider show={show} />
+            <FilterContainer>
+                <Filter isVeg={isVeg} show={show}  city={city}/>
+            </FilterContainer>
+            {
+                (show || window.innerWidth < 1024) && (
+                    <DropDownContainer>
+                        <DropDownHeader onClick={()=>setIsOpenCat(!isOpenCat)}>
+                                {
+                                    isOpenCat ? (
+                                        <>
+                                            Categories&nbsp;<FaCaretUp />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Categories&nbsp;<FaCaretDown/>
+                                        </>
+                                    )
+                                }
+                                
+                        </DropDownHeader>
+                            {
+                                isOpenCat && (
+                                    <DropDownListContainer >
+                                        <DropDownList>
+                                            <ListItem className={category === ''  && 'act'} to='/'>All</ListItem>
+                                            <ListItem to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</ListItem>
+                                                <ListItem to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>{addQuery("category","sandwich");setIsOpenCat(false)}}>Sandwich</ListItem>
+                                            <ListItem to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>{addQuery("category","mini");setIsOpenCat(false)}}>Mini Breakfast</ListItem>
+                                            <ListItem to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>{addQuery("category","burger");setIsOpenCat(false)}}>Burgers</ListItem>
+                                            <ListItem to='/search?category=smoothie' className={category === 'smoothie'  && 'act'}  onClick={()=>{addQuery("category","smoothie");setIsOpenCat(false)}}>Smoothies</ListItem>
+                                            <ListItem to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItem>
+                                            <ListItem to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItem>
+                                            <ListItem to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItem>
+                                            </DropDownList>
+                                    </DropDownListContainer>
+                                )
+                            }
+                    </DropDownContainer>
+                )
+            }
+            
+            <SecondContainer>
                 <CategoryContainer>
-                    <h3>Categorie</h3>
-                    <span style={{display:"flex",flexDirection:"column",justifyContent:"center",margin:"0rem 0rem 0rem 2rem"}}>
-                        
+                    <h1>Categories</h1>
+                    <div style={{textAlign:'left',display:'flex',flexDirection:'column'}}>
                         <TabLink className={category === ''  && 'act'} to='/'>All</TabLink>
                         <TabLink to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</TabLink>
                         <TabLink to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>addQuery("category","sandwich")}>Sandwich</TabLink>
@@ -239,80 +334,9 @@ const HomeScreen = () => {
                         <TabLink to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>addQuery("category","salad")}>Salads</TabLink>
                         <TabLink to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>addQuery("category","meal")}>Meals</TabLink>
                         <TabLink to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>addQuery("category","oats")}>Oats</TabLink>
-                    </span>
+                    </div>
                 </CategoryContainer>
-                
-                {
-                    show && (
-                        <>
-                            <div  style=
-                                {{
-                                    display:"flex",
-                                    width: "90vw",
-                                    margin: "1rem auto 0rem auto",
-                                    justifyContent:"space-between"
-                                }}
-                                >
-                                
-                                <p style={{margin:"0rem"}}><Marker/>&nbsp;{city}</p>
-                                {show && <Filter isVeg={isVeg} show={show}/> }
-                            </div>
-                            <div style={{position:"relative",margin:"0 auto",width:"90vw"}}>
-                                <SearchBox />
-                            </div>
-                            <ProductSlider products = {products} loading={loading} show={show}/>
-                            {/* <div style=
-                                {{
-                                    display:"flex",
-                                    width: "100vw",
-                                    justifyContent:"space-between"
-                                }}
-                            >
-                                <TabLink to='/'>
-                                        Orders
-                                </TabLink>
-                                <TabLink to='/subscription'>
-                                        Subscription
-                                </TabLink>
-                            </div> */}
-                            <DropDownContainer>
-                                <DropDownHeader onClick={()=>setIsOpenCat(!isOpenCat)}>
-                                    {
-                                        isOpenCat ? (
-                                            <>
-                                                Categories&nbsp;<FaCaretUp />
-                                            </>
-                                        ) : (
-                                            <>
-                                                Categories&nbsp;<FaCaretDown/>
-                                            </>
-                                        )
-                                    }
-                                    
-                                </DropDownHeader>
-                                {
-                                        isOpenCat && (
-                                            <DropDownListContainer >
-                                                <DropDownList>
-                                                    <ListItem className={category === ''  && 'act'} to='/'>All</ListItem>
-                                                    <ListItem to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</ListItem>
-                                                        <ListItem to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>{addQuery("category","sandwich");setIsOpenCat(false)}}>Sandwich</ListItem>
-                                                    <ListItem to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>{addQuery("category","mini");setIsOpenCat(false)}}>Mini Breakfast</ListItem>
-                                                    <ListItem to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>{addQuery("category","burger");setIsOpenCat(false)}}>Burgers</ListItem>
-                                                    <ListItem to='/search?category=smoothie' className={category === 'smoothie'  && 'act'}  onClick={()=>{addQuery("category","smoothie");setIsOpenCat(false)}}>Smoothies</ListItem>
-                                                    <ListItem to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItem>
-                                                    <ListItem to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItem>
-                                                    <ListItem to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItem>
-                                                    </DropDownList>
-                                            </DropDownListContainer>
-                                        )
-                                    }
-                            </DropDownContainer>
-                        </>
-                    )
-                }
                 <ProductsContainer>
-                    {!show && <Filter isVeg={isVeg} show={show}/>}
                     {
                         loading ? (
                             <Loader />
@@ -328,11 +352,12 @@ const HomeScreen = () => {
                     }
                 </ProductsContainer>
                 <CartContainer>
-                    <Cart />
+                    <Cart/>
                 </CartContainer>
-            </Container>
-            {!show && <Footer/>}
-        </>
+            </SecondContainer>
+                
+            {!show && <Footer />}
+        </Container>
     );
 }
 

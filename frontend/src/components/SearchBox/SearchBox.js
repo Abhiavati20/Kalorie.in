@@ -24,8 +24,8 @@ const SearchBox = () => {
                 name={keyword}
                 onChange = {(e) => setKeyword(e.target.value)}
                 placeholder={keyword? keyword:'Search ...'}
-                className='my-2 mx-auto  w-100'
-                style={{backgroundColor:"white", borderRadius:"5px", boxShadow: "0px 0px 10px 1px #e1e1e1", height: "38px"}}
+                // className='my-2  w-100'
+                style={{backgroundColor:"white",marginTop:window.innerWidth > 767 ?'0.5rem':'0rem',width:'100%', borderRadius:"5px", boxShadow: "0px 0px 10px 1px #e1e1e1", height: "38px"}}
             ></Form.Control>        
         </Form>
     )

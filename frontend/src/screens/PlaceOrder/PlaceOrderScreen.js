@@ -163,6 +163,9 @@ const PlaceOrderScreen = () => {
             }
             return null;
         })
+        if(!filteredData){
+            toast.info("There is no coupon with this code!!")
+        }
         const arr = filteredData.users;
         let filteredUser;
         arr.map(user=> {

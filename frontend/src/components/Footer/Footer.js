@@ -1,12 +1,11 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaPhoneAlt, FaTwitter } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
+import { FaEnvelope, FaFacebook, FaInstagram, FaPhoneAlt, } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
-    const navigate = useNavigate();
     return (
-    <footer className='bg-white w-100' >
+    <footer style={{position:'static',width:'100%',left:0, bottom:0,background:'white'}}>
         <Container>
             <Row>
                 <Col className='py-3' md={3}>

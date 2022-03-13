@@ -11,11 +11,7 @@ import ProductSlider               from '../../components/ProductSlider/ProductS
 
 import styled                      from "styled-components";
 import ProductsListScreen from './ProductsListScreen';
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { keyframes} from 'styled-components';
-import { zoomInUp } from 'react-animations'
-import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import { getCity, usePosition } from '../../components/Navbar/usePosition';
 import Footer from '../../components/Footer/Footer';
 
@@ -40,6 +36,7 @@ const FilterContainer = styled.div`
     margin-bottom: 1.5rem;
     z-index: 10;
     background-color: #f5f5f5;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.2);
     @media (min-width: 768px) and (max-width: 1024px){
         margin-bottom: 0.5rem;
     }
@@ -47,7 +44,7 @@ const FilterContainer = styled.div`
 const CategoryContainer = styled.div`
     position: sticky;
     flex: 2.5;
-    top: 5rem;
+    top: 6rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
@@ -84,7 +81,7 @@ const ProductsContainer = styled.div`
 `;
 const CartContainer = styled.div`
     position: sticky;
-    top: 5rem;
+    top: 6rem;
     display: flex;
     flex-direction: column;
     margin-bottom: 2rem;
@@ -122,113 +119,7 @@ export const TabLink = styled(NavLink)`
     }
     
 `;
-const DropDownContainer = styled("div")`
-    @media screen and (min-width: 320px) and (max-width: 767px)
-    {margin : 0.5rem auto;
-    width: 8rem;}
-    @media (min-width: 768px) and (max-width: 1024px){
-        /* top: 7.6rem; */
-        margin: 0.25rem 3rem;
-        width: 8rem;
-    }
-`;
 
-const DropDownHeader = styled("div")`
-    @media screen and (min-width: 320px) and (max-width: 767px){
-    
-    
-        position: sticky;
-        left: 0;
-        right: 0;
-        width: 100%;
-        bottom: 10%;
-        cursor: pointer;
-        color: white;
-        border: 3px solid #c3a321;
-        background-color: #c3a321;
-        outline: #F5CB05;
-        text-align: center;
-        font-size: 0.9rem;
-        font-weight: 600;
-        margin: 0rem auto;
-        padding: 0.25rem 0.25rem;
-        border-radius: 10px;
-    }
-    @media (min-width: 768px) and (max-width: 1024px){
-        position: sticky;
-        right: 0;
-        width: 100%;
-        cursor: pointer;
-        color: white;
-        border: 3px solid #c3a321;
-        background-color: #c3a321;
-        padding: 0.25rem 0.25rem;
-        border-radius: 10px;
-        text-align: center;
-    }
-`;
-
-const DropDownListContainer = styled("div")`
-    @media screen and (min-width: 320px) and (max-width: 767px){
-        position: sticky;
-        left: 0;
-        right: 0;
-        width: 40%;
-        margin: 0 auto;
-    }
-    @media (min-width: 768px) and (max-width: 1024px){
-        position: sticky;
-        left: 0%;
-        width: 50%;
-        margin: 0rem;
-    }
-`;
-const FadeInAnimation = keyframes`${zoomInUp}`;
-
-export const DropDownList = styled("ul")`
-    @media screen and (min-width: 320px) and (max-width: 767px){
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    background: white;
-    border-radius: 10px;
-    color: black;
-    font-size: 1rem;
-    font-weight: 500;
-    z-index: 10;
-    width: 50%;
-    left: 0;
-right: 0;
-margin: 0 auto;
-    animation: 1.5s ${FadeInAnimation};
-    &:first-child {
-        padding-top: 0.15rem;
-    }
-    }
-    @media (min-width: 768px) and (max-width: 1024px){
-        display: flex;
-    flex-direction: column;
-    position: fixed;
-    background: white;
-    border-radius: 10px;
-    color: black;
-    font-size: 1rem;
-    font-weight: 500;
-    z-index: 10;
-    width: 20%;
-    animation: 1.5s ${FadeInAnimation};
-    &:first-child {
-        padding-top: 0.15rem;
-    }   
-    }
-
-`;
-
-const ListItem = styled(Link)`
-  list-style: none;
-  z-index:20;
-  margin: 0rem 1rem;
-`;
 
 const HomeScreen = () => {
 
@@ -253,7 +144,6 @@ const HomeScreen = () => {
     const category = searchParams.get('category') ?searchParams.get('category') : '';
 
     const [show,setShow] = useState(false);
-    const [isOpenCat, setIsOpenCat] = useState(false);
     const [city,setCity] = useState("");
     const {latitude, longitude} = usePosition();
 
@@ -283,50 +173,14 @@ const HomeScreen = () => {
             <FilterContainer>
                 <Filter isVeg={isVeg} show={show}  city={city}/>
             </FilterContainer>
-            {
-                (show || window.innerWidth < 1024) && (
-                    <DropDownContainer>
-                        <DropDownHeader onClick={()=>setIsOpenCat(!isOpenCat)}>
-                                {
-                                    isOpenCat ? (
-                                        <>
-                                            Categories&nbsp;<FaCaretUp />
-                                        </>
-                                    ) : (
-                                        <>
-                                            Categories&nbsp;<FaCaretDown/>
-                                        </>
-                                    )
-                                }
-                                
-                        </DropDownHeader>
-                            {
-                                isOpenCat && (
-                                    <DropDownListContainer >
-                                        <DropDownList>
-                                            <ListItem className={category === ''  && 'act'} to='/'>All</ListItem>
-                                            <ListItem to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</ListItem>
-                                                <ListItem to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>{addQuery("category","sandwich");setIsOpenCat(false)}}>Sandwich</ListItem>
-                                            <ListItem to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>{addQuery("category","mini");setIsOpenCat(false)}}>Mini Breakfast</ListItem>
-                                            <ListItem to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>{addQuery("category","burger");setIsOpenCat(false)}}>Burgers</ListItem>
-                                            <ListItem to='/search?category=smoothie' className={category === 'smoothie'  && 'act'}  onClick={()=>{addQuery("category","smoothie");setIsOpenCat(false)}}>Smoothies</ListItem>
-                                            <ListItem to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItem>
-                                            <ListItem to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItem>
-                                            <ListItem to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItem>
-                                            </DropDownList>
-                                    </DropDownListContainer>
-                                )
-                            }
-                    </DropDownContainer>
-                )
-            }
+            
             
             <SecondContainer>
                 <CategoryContainer>
                     <h1>Categories</h1>
                     <div style={{textAlign:'left',display:'flex',flexDirection:'column'}}>
                         <TabLink className={category === ''  && 'act'} to='/'>All</TabLink>
-                        <TabLink to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</TabLink>
+                        <TabLink to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>addQuery("category","wrap")}>Wraps</TabLink>
                         <TabLink to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>addQuery("category","sandwich")}>Sandwich</TabLink>
                         <TabLink to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>addQuery("category","mini")}>Mini Breakfast</TabLink>
                         <TabLink to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>addQuery("category","burger")}>Burgers</TabLink>

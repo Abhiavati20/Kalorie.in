@@ -40,18 +40,20 @@ body::-webkit-scrollbar{
   }
 }
 input[type=checkbox] {
-  color: #F5CB05 !important;
+  accent-color: #F5CB05;
+  
+  color: white !important;
   background-color:#F5CB05 !important;
 }
 
 .checkbox label:before {
-  color: #F5CB05 !important;
+  color: white !important;
   background-color:#F5CB05 !important;
 }
 
 
 
 input[type=checkbox]:checked {
-  color: #F5CB05 !important;
+  color: white !important;
   background-color:#F5CB05 !important;
 }

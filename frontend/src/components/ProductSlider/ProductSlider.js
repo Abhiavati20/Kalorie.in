@@ -60,16 +60,15 @@ const ProductSlider = ({show}) => {
                 dotListClass='react-multi-carousel-dot'
                 itemClass="carousel-item-padding-40-px"
             >
+                <div style={{  background: '#EEE' }}>
+                    <img src='/images/coupon.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
+                </div>
                 <div style={{ background: '#EEE' }}>
                     <img src='/images/Website1.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
                 </div>
                 <div style={{  background: '#EEE' }}>
                     <img src='/images/Website3.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
                 </div>
-                <div style={{  background: '#EEE' }}>
-                    <img src='/images/coupon.png' width="100%" height={show?"200px":window.innerWidth<1024?"340px":"450px"} alt="hello" />
-                </div>
-                
             </Carousel>
         </div>
     )

@@ -86,7 +86,7 @@ const PlaceOrderScreen = () => {
                 "currency": data.currency,
                 "name": "Kalorie",
                 "description": "Test Transaction...",
-                "image": "/images/logo.png",
+                "image": "mobile.png",
                 "order_id": data.id, 
                 "handler": async function (response) {
                     if(response)    

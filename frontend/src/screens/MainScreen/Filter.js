@@ -6,6 +6,8 @@ import {  useNavigate } from 'react-router-dom';
 import {FaCaretDown, FaCaretUp, FaMapMarkerAlt, FaSlidersH} from 'react-icons/fa';
 import {  useLocation }               from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { keyframes} from 'styled-components';
+import { zoomInUp } from 'react-animations'
 const Container = styled.div`
     position: sticky;
     display: flex;
@@ -80,10 +82,122 @@ const ListItem = styled(Link)`
   margin: 0rem 1rem;
 `;
 
+const DropDownContainerCat = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px)
+    {margin : 0.5rem auto;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        /* top: 7.6rem; */
+        margin: 0.25rem 3rem 0.5rem;
+        /* width: 8rem; */
+    }
+`;
+
+const DropDownHeaderCat = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px){
+    
+    
+        position: sticky;
+        left: 0;
+        right: 0;
+        width: 30%;
+        bottom: 10%;
+        cursor: pointer;
+        color: white;
+        border: 3px solid #c3a321;
+        background-color: #c3a321;
+        outline: #F5CB05;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0rem auto;
+        padding: 0.25rem 0.25rem;
+        border-radius: 10px;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        position: sticky;
+        right: 0;
+        width: 15%;
+        cursor: pointer;
+        color: white;
+        border: 3px solid #c3a321;
+        background-color: #c3a321;
+        padding: 0.25rem 0.25rem;
+        border-radius: 10px;
+        text-align: center;
+        margin: 0;
+    }
+`;
+
+const DropDownListContainerCat = styled("div")`
+    @media screen and (min-width: 320px) and (max-width: 767px){
+        position: sticky;
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        position: sticky;
+        left: 0%;
+        width: 25%;
+        margin: 0rem;
+    }
+`;
+const FadeInAnimation = keyframes`${zoomInUp}`;
+
+export const DropDownListCat = styled("ul")`
+    @media screen and (min-width: 320px) and (max-width: 767px){
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10;
+    width: 50%;
+    left: 0;
+right: 0;
+margin: 0 auto;
+    animation: 1.5s ${FadeInAnimation};
+    &:first-child {
+        padding-top: 0.15rem;
+    }
+    }
+    @media (min-width: 768px) and (max-width: 1024px){
+        position: sticky;
+        display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10;
+    width: 100%;
+    animation: 1.5s ${FadeInAnimation};
+    &:first-child {
+        padding-top: 0.15rem;
+    }   
+    }
+
+`;
+
+const ListItemCat = styled(Link)`
+  list-style: none;
+  z-index:20;
+  margin: 0rem 1rem;
+`;
 const Filter = ({isVeg,show,city}) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggling = () => setIsOpen(!isOpen);
     const [isOpenCal,setIsOpenCal] = useState(false);
+
+    const [isOpenCat, setIsOpenCat] = useState(false);
+    const searchParams = new URLSearchParams(useLocation().search);
+    const category = searchParams.get('category') ?searchParams.get('category') : '';
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -118,6 +232,7 @@ const Filter = ({isVeg,show,city}) => {
     //     }
     // }
     return !show ? (
+        <div>
         <Container >
             <SearchBox/>
             <Form.Group controlId='isVeg' className='d-flex mt-2' style={{width:window.innerWidth>1024?'20%':'50%',justifyContent:'space-evenly'}}>
@@ -230,9 +345,48 @@ const Filter = ({isVeg,show,city}) => {
                     )
                 }
             </DropDownContainer>
-
+            
         </Container>
+        {
+            window.innerWidth < 1024 && (
+                <DropDownContainerCat>
+                        <DropDownHeaderCat onClick={()=>setIsOpenCat(!isOpenCat)}>
+                                {
+                                    isOpenCat ? (
+                                        <>
+                                            Categories&nbsp;<FaCaretUp />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Categories&nbsp;<FaCaretDown/>
+                                        </>
+                                    )
+                                }
+                                
+                        </DropDownHeaderCat>
+                            {
+                                isOpenCat && (
+                                    <DropDownListContainerCat >
+                                        <DropDownListCat>
+                                            <ListItemCat className={category === ''  && 'act'} onClick={()=>setIsOpenCat(false)} to='/'>All</ListItemCat>
+                                            <ListItemCat to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</ListItemCat>
+                                            <ListItemCat to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>{addQuery("category","sandwich");setIsOpenCat(false)}}>Sandwich</ListItemCat>
+                                            <ListItemCat to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>{addQuery("category","mini");setIsOpenCat(false)}}>Mini Breakfast</ListItemCat>
+                                            <ListItemCat to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>{addQuery("category","burger");setIsOpenCat(false)}}>Burgers</ListItemCat>
+                                            <ListItemCat to='/search?category=smoothie' className={category === 'smoothie'  && 'act'}  onClick={()=>{addQuery("category","smoothie");setIsOpenCat(false)}}>Smoothies</ListItemCat>
+                                            <ListItemCat to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItemCat>
+                                            <ListItemCat to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItemCat>
+                                            <ListItemCat to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItemCat>
+                                            </DropDownListCat>
+                                    </DropDownListContainerCat>
+                                )
+                            }
+                    </DropDownContainerCat>
+            )
+        }
+        </div>
         ) : (
+            <div>
             <Container style={{flexDirection:'column'}}>
                 <div style={{display:'flex',width:'100%',padding:'1rem 0rem',justifyContent:'space-between'}}>
                     <p style={{color:'#F5C508',marginTop:'1rem'}}><FaMapMarkerAlt style={{color:'#F5C508'}} />&nbsp;{city}</p>
@@ -336,6 +490,40 @@ const Filter = ({isVeg,show,city}) => {
                 </div>
                 <SearchBox />
             </Container>
+            <DropDownContainerCat>
+                        <DropDownHeaderCat onClick={()=>setIsOpenCat(!isOpenCat)}>
+                                {
+                                    isOpenCat ? (
+                                        <>
+                                            Categories&nbsp;<FaCaretUp />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Categories&nbsp;<FaCaretDown/>
+                                        </>
+                                    )
+                                }
+                                
+                        </DropDownHeaderCat>
+                            {
+                                isOpenCat && (
+                                    <DropDownListContainerCat >
+                                        <DropDownListCat>
+                                            <ListItemCat className={category === ''  && 'act'} onClick={()=>setIsOpenCat(false)} to='/'>All</ListItemCat>
+                                            <ListItemCat to="/search?category=wrap" className={category === 'wrap'  && 'act'}  onClick={()=>{addQuery("category","wrap");setIsOpenCat(false)}}>Wraps</ListItemCat>
+                                            <ListItemCat to='/search?category=sandwich' className={category === 'sandwich'  && 'act'}  onClick={()=>{addQuery("category","sandwich");setIsOpenCat(false)}}>Sandwich</ListItemCat>
+                                            <ListItemCat to='/search?category=mini' className={category === 'mini'  && 'act'}  onClick={()=>{addQuery("category","mini");setIsOpenCat(false)}}>Mini Breakfast</ListItemCat>
+                                            <ListItemCat to='/search?category=burger' className={category === 'burger'  && 'act'}  onClick={()=>{addQuery("category","burger");setIsOpenCat(false)}}>Burgers</ListItemCat>
+                                            <ListItemCat to='/search?category=smoothie' className={category === 'smoothie'  && 'act'}  onClick={()=>{addQuery("category","smoothie");setIsOpenCat(false)}}>Smoothies</ListItemCat>
+                                            <ListItemCat to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItemCat>
+                                            <ListItemCat to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItemCat>
+                                            <ListItemCat to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItemCat>
+                                            </DropDownListCat>
+                                    </DropDownListContainerCat>
+                                )
+                            }
+                    </DropDownContainerCat>
+            </div>
         )
 }
 

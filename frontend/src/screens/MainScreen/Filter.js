@@ -97,7 +97,7 @@ const DropDownHeaderCat = styled("div")`
     @media screen and (min-width: 320px) and (max-width: 767px){
     
     
-        position: sticky;
+        position: fixed;
         left: 0;
         right: 0;
         width: 30%;
@@ -111,13 +111,15 @@ const DropDownHeaderCat = styled("div")`
         font-size: 0.9rem;
         font-weight: 600;
         margin: 0rem auto;
-        padding: 0.25rem 0.25rem;
+        padding: 0rem;
         border-radius: 10px;
     }
     @media (min-width: 768px) and (max-width: 1024px){
-        position: sticky;
+        position: fixed;
         right: 0;
+        left: 20%;
         width: 15%;
+        bottom: 10%;
         cursor: pointer;
         color: white;
         border: 3px solid #c3a321;
@@ -131,16 +133,21 @@ const DropDownHeaderCat = styled("div")`
 
 const DropDownListContainerCat = styled("div")`
     @media screen and (min-width: 320px) and (max-width: 767px){
-        position: sticky;
+        position: fixed;
         left: 0;
         right: 0;
+        
         width: 100%;
         margin: 0 auto;
     }
     @media (min-width: 768px) and (max-width: 1024px){
-        position: sticky;
+        position: fixed;
         left: 0%;
+        right: 0%;
+        right: 0;
+        left: 20%;
         width: 25%;
+        bottom: 33%;
         margin: 0rem;
     }
 `;
@@ -150,7 +157,7 @@ export const DropDownListCat = styled("ul")`
     @media screen and (min-width: 320px) and (max-width: 767px){
     display: flex;
     flex-direction: column;
-    position: sticky;
+    position: fixed;
     background: white;
     border-radius: 10px;
     color: black;
@@ -160,6 +167,7 @@ export const DropDownListCat = styled("ul")`
     width: 50%;
     left: 0;
 right: 0;
+bottom:14%;
 margin: 0 auto;
     animation: 1.5s ${FadeInAnimation};
     &:first-child {
@@ -167,7 +175,7 @@ margin: 0 auto;
     }
     }
     @media (min-width: 768px) and (max-width: 1024px){
-        position: sticky;
+        position: fixed;
         display: flex;
     flex-direction: column;
     background: white;
@@ -176,7 +184,7 @@ margin: 0 auto;
     font-size: 1rem;
     font-weight: 500;
     z-index: 10;
-    width: 100%;
+    width: 25%;
     animation: 1.5s ${FadeInAnimation};
     &:first-child {
         padding-top: 0.15rem;
@@ -212,25 +220,6 @@ const Filter = ({isVeg,show,city}) => {
         });
         
     };
-    // const handleChange = (e) =>{
-    //     if(e.target.placeholder==="veg")
-    //     {
-    //         if(e.target.checked){
-    //             addQuery("isVeg","true")
-    //         }
-    //         else{
-    //             navigate('/');
-    //         }
-    //     }
-    //     else{
-    //         if(e.target.checked){
-    //             addQuery("isVeg","false")
-    //         }
-    //         else{
-    //             navigate('/');
-    //         }
-    //     }
-    // }
     return !show ? (
         <div>
         <Container >
@@ -350,7 +339,7 @@ const Filter = ({isVeg,show,city}) => {
             
         </Container>
         {
-            window.innerWidth < 1024 && (
+            window.innerWidth < 767 && (
                 <DropDownContainerCat>
                         <DropDownHeaderCat onClick={()=>setIsOpenCat(!isOpenCat)}>
                                 {

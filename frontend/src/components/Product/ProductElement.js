@@ -6,7 +6,7 @@ export const Card = styled.div`
     margin: 0.5rem 2rem;
     box-shadow: 0px 0px 5px 0.5px #d1d1d1;
     border-radius: 10px;
-    width: 30%;
+    width: 35%;
     @media screen and (min-width: 320px) and (max-width: 767px){
         width: 45%;
         margin: 0.5rem 0.5rem;

@@ -98,10 +98,13 @@ const ProductDetailScreen = () => {
                                         <span style={{color:'black',fontWeight:'bold'}}>Price</span> : {' '}
                                         Rs{product.price}
                                     </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <span style={{color:'black',fontWeight:'bold'}}>Calories</span> :{' '}  
-                                        {product.calories} Kcal
-                                    </ListGroup.Item>
+                                    {
+                                        product.calories !== 0 && 
+                                        <ListGroup.Item>
+                                            <span style={{color:'black',fontWeight:'bold'}}>Calories</span> :{' '}  
+                                            {product.calories} Kcal
+                                        </ListGroup.Item>
+                                    }
                                     
                                     {
                                         product.isVeg ? (

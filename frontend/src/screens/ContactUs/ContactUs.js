@@ -12,14 +12,14 @@ const ContactUs = () => {
                 <span><FaPhoneAlt style={{'color':'#F5CB05','margin':'0.5rem 0.5rem',fontSize:'1rem'}}/> +91 - 78969998929 </span>
                     
                 <h5 style={{textAlign:"left",width:"100%",padding:"0.5rem 0.25rem",borderBottom:"0.5px solid rgba(0, 0, 0, 0.125)",fontSize:"1.5rem"}}>Connect With Us</h5>
-                <span><FaEnvelope style={{'color':'#F5CB05','margin':'0.5rem 0.5rem',fontSize:'1rem'}} /><a href='mailto:contact@kalorie.in' target={'_blank'}>contact@kalorie.in</a></span>
+                <span><FaEnvelope style={{'color':'#F5CB05','margin':'0.5rem 0.5rem',fontSize:'1rem'}} /><a href='mailto:contact@kalorie.in' target={'_blank'} rel="noopener noreferrer">contact@kalorie.in</a></span>
                 
                 <h5 style={{textAlign:"left",width:"100%",padding:"0.5rem 0.25rem",borderBottom:"0.5px solid rgba(0, 0, 0, 0.125)",fontSize:"1.5rem"}}>Follow us here</h5>
                 <span style={{'margin':'1rem 0rem'}}>
-                    <a href='https://www.facebook.com/KALORIEin-101064752518199/' target={'_blank'}><FaFacebook  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.35rem'}} /></a>
+                    <a rel="noopener noreferrer" href='https://www.facebook.com/KALORIEin-101064752518199/' target={'_blank'}><FaFacebook  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.35rem'}} /></a>
                     {/* <a href='https://www.twitter.com' target='_blank'><FaTwitter style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a> */}
                     {/* <a href='' target='_blank'><FaLinkedin style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a> */}
-                    <a href ='https://www.instagram.com/kalorie.in/?hl=en' target={'_blank'}><FaInstagram  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.35rem'}} /></a>
+                    <a rel="noopener noreferrer" href ='https://www.instagram.com/kalorie.in/?hl=en' target={'_blank'}><FaInstagram  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.35rem'}} /></a>
                 </span>    
 
             </div>

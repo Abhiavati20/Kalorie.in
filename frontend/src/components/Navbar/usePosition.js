@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 
 const defaultSettings = {
     enableHighAccuracy: false,
@@ -8,7 +8,8 @@ const defaultSettings = {
 };
 
 export const usePosition = (watch = false, userSettings = {}) => {
-    const settings = {
+    let settings = useMemo(() => [], []);
+    settings = {
         ...defaultSettings,
         ...userSettings,
     };

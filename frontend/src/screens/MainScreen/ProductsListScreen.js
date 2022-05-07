@@ -12,12 +12,12 @@ const Container = styled.div`
     }
 `;
 
-const ProductsListScreen = ({products}) => {
+const ProductsListScreen = ({show,products}) => {
     return (
         <Container>
             {
                 products.map(product => (
-                    <Product key={product._id} product={product} />
+                    <Product show={show} products = {products} key={product._id} product={product} />
                 ))
             }
         </Container>

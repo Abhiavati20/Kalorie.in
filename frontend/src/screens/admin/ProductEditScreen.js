@@ -74,7 +74,8 @@ const ProductEditScreen = () => {
         body: formData,
       })
       const data = await cloudRes.json()
-      setImage(data.url)
+      console.log(data);
+      setImage(data.secure_url)
       setUploading(false)
     } catch (error) {
       console.error(error)

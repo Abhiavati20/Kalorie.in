@@ -48,6 +48,7 @@ const Product = ({ product }) => {
         <Card>
             <Link to={`/product/${product._id}`}>
                 <CardImage src={`${product.image}`} alt={product.name} />
+                
             </Link>
             <CardBody>
                 <ProductTitle>
@@ -55,7 +56,16 @@ const Product = ({ product }) => {
                     <ProductLink style={{flex:'3',textAlign:'right'}} to={`/product/${product._id}`}><span style={{fontSize:'0.75rem',color: 'rgba(0,0,0,0.7)'}}>Rs {product.price}</span></ProductLink>
                 </ProductTitle>
                 <ProductDesc>
-                    {product.calories}{' '}Kcal {' | '} {product.nutritionInfo==="lowcarbs"?"Low-Carbs":product.nutritionInfo==="highproteins"?"High Proteins":product.nutritionInfo==="balanced"&&"Balanced"}
+                    {
+                        product.calories === 0 ? 
+                        <>
+                            {product.nutritionInfo==="lowcarbs"?"Low-Carbs":product.nutritionInfo==="highproteins"?"High Proteins":product.nutritionInfo==="balanced"&&"Balanced"}
+                        </>
+                        :
+                        <>
+                            {product.calories}{' '}Kcal {' | '} {product.nutritionInfo==="lowcarbs"?"Low-Carbs":product.nutritionInfo==="highproteins"?"High Proteins":product.nutritionInfo==="balanced"&&"Balanced"}
+                        </>
+                    }
                     <button disabled={!product.isOnline} onClick={addToCartHandler}>Add</button>
                 </ProductDesc>
                 

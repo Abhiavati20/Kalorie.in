@@ -199,7 +199,7 @@ const HomeScreen = () => {
                         ) : (
                             <>
                                 
-                                <ProductsListScreen products={products} />
+                                <ProductsListScreen show={show} products={products} />
                                 
                             </>
                         )

@@ -244,21 +244,20 @@ const Cart = () => {
     const cart = useSelector((state) => state.cart)
     const { cartItems } = cart
 
-    const productTopRated = useSelector((state) => state.productTopRated)
+    const productTopRated = useSelector((state) => state.productList)
     const { loading, error, products } = productTopRated;
     const [FilteredItem,setFilteredItem] = useState([])
-    
-    useEffect(() => {
+        useEffect(() => {
         var result = products.filter(function (o1) {
             return !cartItems.some(function (o2) {
                 return o1._id === o2.product; // return the ones with equal id
            });
         });
         setFilteredItem([...result])
-        dispatch(listTopProducts())
-    }, [dispatch,cartItems])
+        dispatch(listTopProducts())        
+    }, [dispatch,listTopProducts])
     const checkoutHandler = ()=>{
-        if(!products[0].isOnline)
+        if(products && !products[0]?.isOnline)
         {
             toast.warning("Sorry We are not available for now!! ")
         }
@@ -287,26 +286,26 @@ const Cart = () => {
         dispatch(addToCart(product._id,qty));
     }
     const handleChange = (item,action) => {
-        const FilteredItem = cartItems.filter(x => x.product === item.product);
+        const FilteredItems = cartItems.filter(x => x.product === item.product);
         if(action === "+")
         {
-            if(FilteredItem[0].qty + 1> FilteredItem[0].availability){
+            if(FilteredItems[0].qty + 1> FilteredItems[0].availability){
                 toast.warning('Sorry! product not available above that quantity')
             }
-            FilteredItem[0].qty=FilteredItem[0].qty + 1 > FilteredItem[0].availability 
-                            ? FilteredItem[0].availability 
-                            : FilteredItem[0].qty + 1;
+            FilteredItems[0].qty=FilteredItems[0].qty + 1 > FilteredItems[0].availability 
+                            ? FilteredItems[0].availability 
+                            : FilteredItems[0].qty + 1;
             
-            dispatch(addToCart(FilteredItem[0].product,FilteredItem[0].qty));
+            dispatch(addToCart(FilteredItems[0].product,FilteredItems[0].qty));
         }
         if(action === "-")
         {
-            FilteredItem[0].qty=FilteredItem[0].qty - 1 === 0 
+            FilteredItems[0].qty=FilteredItems[0].qty - 1 === 0 
                             ? 0 
-                            : FilteredItem[0].qty - 1;
+                            : FilteredItems[0].qty - 1;
              
-            FilteredItem[0].qty ?dispatch(addToCart(FilteredItem[0].product,FilteredItem[0].qty))
-                            :dispatch(removeFromCart(FilteredItem[0].product));
+            FilteredItems[0].qty ?dispatch(addToCart(FilteredItems[0].product,FilteredItems[0].qty))
+                            :dispatch(removeFromCart(FilteredItems[0].product));
         }
     }
     return (

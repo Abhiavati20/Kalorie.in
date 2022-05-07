@@ -19,7 +19,7 @@ const Footer = () => {
                     <hr style={{margin:'0 0 0.25rem',width:'10%', borderBottom:"2px solid rgba(0, 0, 0, 0.5)"}} />
                     <p style={{display:'flex',flexDirection:'column'}}>
                         <span><FaPhoneAlt style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1rem'}}/> 78969998929 </span>
-                        <span><FaEnvelope style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1rem'}} /><a href='mailto:contact@kalorie.in' target='_blank'>contact@kalorie.in</a></span>
+                        <span><FaEnvelope style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1rem'}} /><a href='mailto:contact@kalorie.in' rel="noopener noreferrer" target='_blank'>contact@kalorie.in</a></span>
                     </p>
                 </Col>
                 <Col className='py-3' md={3}>
@@ -37,10 +37,10 @@ const Footer = () => {
                 <h5 style={{textAlign:"left",width:"40%",padding:"0.25rem 0rem 0rem",fontSize:"14px"}}>Follow Us</h5>
                     <hr style={{margin:'0 0 0.25rem',width:'10%', borderBottom:"2px solid rgba(0, 0, 0, 0.5)"}} />
                     <p >
-                        <a href='https://www.facebook.com/KALORIEin-101064752518199/' target='_blank'><FaFacebook  style={{'color':'#F5CB05','margin':'0rem 0rem',fontSize:'1.5rem'}} /></a>
+                        <a rel="noopener noreferrer" href='https://www.facebook.com/KALORIEin-101064752518199/' target='_blank'><FaFacebook  style={{'color':'#F5CB05','margin':'0rem 0rem',fontSize:'1.5rem'}} /></a>
                         {/* <a href='https://www.twitter.com' target='_blank'><FaTwitter style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a> */}
                         {/* <a href='' target='_blank'><FaLinkedin style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a> */}
-                        <a href ='https://www.instagram.com/kalorie.in/?hl=en' target='_blank'><FaInstagram  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a>
+                        <a rel="noopener noreferrer" href ='https://www.instagram.com/kalorie.in/?hl=en' target='_blank'><FaInstagram  style={{'color':'#F5CB05','margin':'0rem 0.5rem',fontSize:'1.5rem'}} /></a>
                     </p>
                 </Col>
             </Row>

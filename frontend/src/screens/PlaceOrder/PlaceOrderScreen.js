@@ -254,8 +254,8 @@ const PlaceOrderScreen = () => {
                                                             alt={item.name}
                                                             width="25px"
                                                             height="25px"
-                                                            fluid
-                                                            rounded
+                                                            fluid = "true"
+                                                            rounded = "true"
                                                         />
                                                     </Col>
                                                     <Col xs={4} className='d-flex flex-column'>

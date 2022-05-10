@@ -122,7 +122,7 @@ export const TabLink = styled(NavLink)`
 
 
 const HomeScreen = () => {
-
+    console.log("hello world")
     const dispatch = useDispatch();
     
     const productList = useSelector((state) => state.productList)

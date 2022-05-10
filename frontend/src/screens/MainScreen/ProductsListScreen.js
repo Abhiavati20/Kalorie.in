@@ -16,7 +16,7 @@ const ProductsListScreen = ({show,products}) => {
     return (
         <Container>
             {
-                products.map(product => (
+                products?.map(product => (
                     <Product show={show} products = {products} key={product._id} product={product} />
                 ))
             }

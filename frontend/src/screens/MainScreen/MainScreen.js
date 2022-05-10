@@ -188,6 +188,11 @@ const HomeScreen = () => {
                         <TabLink to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>addQuery("category","salad")}>Salads</TabLink>
                         <TabLink to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>addQuery("category","meal")}>Meals</TabLink>
                         <TabLink to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>addQuery("category","oats")}>Oats</TabLink>
+                        <TabLink to='/search?category=Chicken' className={category === 'Chicken'  && 'act'}  onClick={()=>addQuery("category","Chicken")}>Chicken items</TabLink>
+                        <TabLink to='/search?category=Egg' className={category === 'Egg'  && 'act'}  onClick={()=>addQuery("category","Egg")}>Egg</TabLink>
+                        <TabLink to='/search?category=Breakfast' className={category === 'Breakfast'  && 'act'}  onClick={()=>addQuery("category","Breakfast")}>Breakfast</TabLink>
+                        <TabLink to='/search?category=Lunch' className={category === 'Lunch'  && 'act'}  onClick={()=>addQuery("category","Lunch")}>Lunch</TabLink>
+                        <TabLink to='/search?category=Dinner' className={category === 'Dinner'  && 'act'}  onClick={()=>addQuery("category","Dinner")}>Dinner</TabLink>
                     </div>
                 </CategoryContainer>
                 <ProductsContainer>

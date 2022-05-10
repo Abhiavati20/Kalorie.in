@@ -31,7 +31,8 @@ const ThirdWrapper = styled.div`
 `;
 
 const FirstWrapperContent = styled.div`
-    width: 25%;
+    width: 50%;
+    padding-left: 8rem;
     height: 65%;
     margin: auto;
 `;
@@ -82,7 +83,7 @@ const AboutUsScreen = () => {
                     </p>
                     <p>Our wide range of menu is filled with calorie counted food to keep you fit and feel light. Food that is more attractive and tasty may not be the best for your health and to the sad truth, we are often addicted to it. To keep you out of this guilt, we incorporate all the modern food from pizza, sandwiches, and many more with the right ingredients that are healthy and delicious.</p>
                 </FirstWrapperContent>
-                <img style={{margin:'auto'}} src={Berry} alt="berry" width="680px" height="820px" />
+                <img style={{margin:'auto'}} src={Berry} alt="berry" width="35%" height="35%" />
             </FirstWrapper>
             <SecondWrapper>
                 <OurMission>

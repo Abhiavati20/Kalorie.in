@@ -368,6 +368,11 @@ const Filter = ({isVeg,show,city}) => {
                                             <ListItemCat to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItemCat>
                                             <ListItemCat to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItemCat>
                                             <ListItemCat to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItemCat>
+                                            <ListItemCat to='/search?category=Chicken' className={category === 'Chicken'  && 'act'}  onClick={()=>{addQuery("category","Chicken");setIsOpenCat(false)}}>Chicken items</ListItemCat>
+                                            <ListItemCat to='/search?category=Egg' className={category === 'Egg'  && 'act'}  onClick={()=>{addQuery("category","Egg");setIsOpenCat(false)}}>Egg</ListItemCat>
+                                            <ListItemCat to='/search?category=Breakfast' className={category === 'Breakfast'  && 'act'}  onClick={()=>{addQuery("category","Breakfast");setIsOpenCat(false)}}>Breakfast</ListItemCat>
+                                            <ListItemCat to='/search?category=Lunch' className={category === 'Lunch'  && 'act'}  onClick={()=>{addQuery("category","Lunch");setIsOpenCat(false)}}>Lunch</ListItemCat>
+                                            <ListItemCat to='/search?category=Dinner' className={category === 'Dinner'  && 'act'}  onClick={()=>{addQuery("category","Dinner");setIsOpenCat(false)}}>Dinner</ListItemCat>
                                             </DropDownListCat>
                                     </DropDownListContainerCat>
                                 )
@@ -509,6 +514,11 @@ const Filter = ({isVeg,show,city}) => {
                                             <ListItemCat to='/search?category=salad' className={category === 'salad'  && 'act'}  onClick={()=>{addQuery("category","salad");setIsOpenCat(false)}}>Salads</ListItemCat>
                                             <ListItemCat to='/search?category=meal' className={category === 'meal'  && 'act'}  onClick={()=>{addQuery("category","meal");setIsOpenCat(false)}}>Meals</ListItemCat>
                                             <ListItemCat to='/search?category=oats' className={category === 'oats'  && 'act'}  onClick={()=>{addQuery("category","oats");setIsOpenCat(false)}}>Oats</ListItemCat>
+                                            <ListItemCat to='/search?category=Chicken' className={category === 'Chicken'  && 'act'}  onClick={()=>{addQuery("category","Chicken");setIsOpenCat(false)}}>Chicken items</ListItemCat>
+                                            <ListItemCat to='/search?category=Egg' className={category === 'Egg'  && 'act'}  onClick={()=>{addQuery("category","Egg");setIsOpenCat(false)}}>Egg</ListItemCat>
+                                            <ListItemCat to='/search?category=Breakfast' className={category === 'Breakfast'  && 'act'}  onClick={()=>{addQuery("category","Breakfast");setIsOpenCat(false)}}>Breakfast</ListItemCat>
+                                            <ListItemCat to='/search?category=Lunch' className={category === 'Lunch'  && 'act'}  onClick={()=>{addQuery("category","Lunch");setIsOpenCat(false)}}>Lunch</ListItemCat>
+                                            <ListItemCat to='/search?category=Dinner' className={category === 'Dinner'  && 'act'}  onClick={()=>{addQuery("category","Dinner");setIsOpenCat(false)}}>Dinner</ListItemCat>
                                             </DropDownListCat>
                                     </DropDownListContainerCat>
                                 )

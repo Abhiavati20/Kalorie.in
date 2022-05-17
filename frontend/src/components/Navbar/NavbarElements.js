@@ -38,6 +38,7 @@ const RightAnimation = keyframes`${slideInRight}`;
 
 export const NavMenu = styled.div`
     margin: 2.2rem 0rem;
+    z-index: 10;
     @media screen and (min-width: 320px) and (max-width: 767px){
         &.collapsed{
             display: none;
@@ -244,6 +245,7 @@ export const DropDownListContainer = styled("div")`
     background-color: white;
     margin-bottom: 2rem;
     animation: 0.8s ${RightAnimation} ease-in-out;
+    z-index: 10;
     @media screen and (min-width: 320px) and (max-width: 767px){
         top: 2.5rem;
         position: fixed;
@@ -256,6 +258,7 @@ const FadeInAnimation = keyframes`${fadeIn}`;
 export const DropDownListContainerSide = styled("div")`
     /* height: 2vh; */
     background-color: white;
+    z-index: 10;
     animation: 1.5s ${FadeInAnimation};
 `;
 export const DropDownList = styled("ul")`
@@ -272,7 +275,7 @@ export const DropDownList = styled("ul")`
     &:first-child {
         padding-top: 0.15rem;
     }
-    
+    z-index: 20;
 `;
 
 export const ListItem = styled(Link)`
@@ -288,6 +291,7 @@ export const ListItem = styled(Link)`
         color: black;
         text-decoration: none;
     }
+    z-index: 10;
 `;
 
 const LeftAnimation = keyframes`${slideInLeft}`;

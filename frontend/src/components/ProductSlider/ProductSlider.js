@@ -58,7 +58,7 @@ const ProductSlider = ({show}) => {
                 transitionDuration={3000}
                 containerClass="carousel-container"
                 dotListClass='react-multi-carousel-dot'
-                itemClass="carousel-item-padding-40-px"
+                itemClass="react-carousel-item"
             >
                 <div style={{  background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}` }}>
                     {/* <img src='/images/Website4.mp4' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" /> */}

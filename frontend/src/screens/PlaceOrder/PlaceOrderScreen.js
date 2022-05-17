@@ -272,7 +272,7 @@ const PlaceOrderScreen = () => {
                                         <ListGroup.Item>
                                             <Row className={` w-100 justify-content-between`}>
                                                 <Col xs={7} md={7}><p style={{fontWeight:'bolder',color:'black'}}>Delivery</p></Col>
-                                                <Col><p style={{fontWeight:'bolder',color:'black'}}>Free</p></Col>
+                                                <Col><p style={{fontWeight:'bolder',color:'black'}}>Rs {cart.shippingPrice}</p></Col>
                                             </Row>
                                         </ListGroup.Item>
                                         <ListGroup.Item >

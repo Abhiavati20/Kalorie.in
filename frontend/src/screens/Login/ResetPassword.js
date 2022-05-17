@@ -64,7 +64,7 @@ const LoginScreen = () => {
           <Form onSubmit={submitHandler}>
             <Form.Group className='mt-2' controlId='password'>
               <Form.Label style={{color:'black',fontWeight:'700'}}>New Password</Form.Label>
-              <span className='d-flex align-content-center'>
+              <span style={{ alignItems:'center' }} className='d-flex align-content-center'>
               <Form.Control
                 type='password'
                 placeholder='new password'
@@ -81,7 +81,7 @@ const LoginScreen = () => {
 
             <Form.Group className='mt-2' controlId='password'>
               <Form.Label style={{color:'black',fontWeight:'700'}}>Confirm Password</Form.Label>
-              <span className='d-flex align-content-center'>
+              <span style={{ alignItems:'center' }} className='d-flex align-content-center'>
               <Form.Control
                 type='password'
                 placeholder='confirm new password'

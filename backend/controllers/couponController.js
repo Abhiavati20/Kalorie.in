@@ -5,7 +5,7 @@ const Coupon = require('../models/couponModel')
 // @route   POST /api/coupons
 // @access  protected (logged/register users only)
 const newCoupon = asyncHandler(async(req,res) => {
-    const {couponName,value} = req.body;
+    const {couponName,value,minVal} = req.body;
     const coupon = new Coupon({                                   // creating a new product object
         couponName,
         value,

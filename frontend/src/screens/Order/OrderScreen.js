@@ -14,6 +14,7 @@ import FormContainer from '../../components/FormContainer/FormContainer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../../constants/orderConstants'
+import Cart from '../CartScreen/CartScreen'
 const OrderScreen = () => {
     const params = useParams();
     const componentRef = useRef();
@@ -136,7 +137,7 @@ const OrderScreen = () => {
                                         <ListGroup.Item>
                                             <Row className={`d-flex w-100 justify-content-between`}>
                                                 <Col xs={7} md={7}><p style={{fontWeight:'bolder',color:'black'}}>Delivery</p></Col>
-                                                <Col><p style={{fontWeight:'bolder',color:'black'}}>Free</p></Col>
+                                                <Col><p style={{fontWeight:'bolder',color:'black'}}>Rs {order.shippingPrice}</p></Col>
                                             </Row>
                                         </ListGroup.Item>
                                         <ListGroup.Item >

@@ -112,7 +112,7 @@ const ProfileScreen = () => {
 
                                     <Form.Group controlId='password' className='py-2'>
                                         <Form.Label style={{color:'black',fontWeight:'700'}}>New Password</Form.Label>
-                                        <span className='d-flex align-content-center'>
+                                        <span style={{ alignItems:'center' }} className='d-flex align-content-center'>
                                             <Form.Control
                                             type={visible===true?'text':'password'}
                                             placeholder='Enter New password'

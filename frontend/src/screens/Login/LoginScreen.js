@@ -59,9 +59,9 @@ const LoginScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group className='mt-2' controlId='password'>
+            <Form.Group  className='mt-2' controlId='password'>
               <Form.Label style={{color:'black',fontWeight:'700'}}>Password</Form.Label>
-              <span className='d-flex align-content-center'>
+              <span style={{ alignItems:'center' }} className='d-flex align-content-center'>
                 <Form.Control
                   type={visible===true?'text':'password'}
                   placeholder='Enter New password'

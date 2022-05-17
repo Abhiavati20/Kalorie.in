@@ -24,6 +24,11 @@ const couponSchema = mongoose.Schema(
             required : true,
             default  : 0.1,
         },
+        minVal :  {
+            type     : Number,
+            required : true,
+            default  : 0,
+        },
     }
 )
 

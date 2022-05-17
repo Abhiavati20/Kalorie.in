@@ -55,7 +55,7 @@ const PlaceOrderScreen = () => {
         cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
     )
     
-    cart.shippingPrice = 0;
+    cart.shippingPrice = 19;
     
     cart.taxPrice = 0;
     cart.totalPrice = (
@@ -158,7 +158,7 @@ const PlaceOrderScreen = () => {
         const {data} = await axios.get(`${backendUrl}/api/coupons`);
         let filteredData;
         data.map(coupon => {
-            if(coupon.couponName.toLowerCase() === couponName.toLowerCase()){
+            if(coupon.couponName.toLowerCase() === couponName.toLowerCase() && coupon.minVal < cart.totalPrice){
                 filteredData = coupon;
             }
             return null;

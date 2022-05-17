@@ -122,3 +122,5 @@ const App = () => {
 // 2nd para why choose us?
 export default App;
 
+// banner error
+// about us line spacing, padding 

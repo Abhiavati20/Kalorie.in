@@ -183,7 +183,7 @@ const getMyOrders = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const getOrders = asyncHandler(async (req, res) => {
     // get all orders and only populate user name and its id
-    const orders = await Order.find().sort({createdAt:-1}).populate('user', 'id name');
+    const orders = await Order.find().sort({createdAt:-1}).populate('user', 'id name phoneNumber');
     res.json(orders)
 });
 

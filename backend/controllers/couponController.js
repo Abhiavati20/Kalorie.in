@@ -9,6 +9,7 @@ const newCoupon = asyncHandler(async(req,res) => {
     const coupon = new Coupon({                                   // creating a new product object
         couponName,
         value,
+        minVal,
     })
   
     const createdCoupon = await coupon.save()                     // saving that object

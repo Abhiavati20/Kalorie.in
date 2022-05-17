@@ -46,12 +46,12 @@ const ProductSlider = ({show}) => {
             <Carousel
                 swipeable={true}
                 draggable={true}
-                arrows={false}
-                showDots={true}
+                arrows={true}
+                showDots={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
-                autoPlay={true}
+                autoPlay={false}
                 autoPlaySpeed={3000}
                 keyBoardControl={true}
                 customTransition="all 1s"
@@ -60,20 +60,20 @@ const ProductSlider = ({show}) => {
                 dotListClass='react-multi-carousel-dot'
                 itemClass="carousel-item-padding-40-px"
             >
-                <div style={{  background: '#EEE' }}>
+                <div style={{  background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}` }}>
                     {/* <img src='/images/Website4.mp4' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" /> */}
-                    <video autoPlay = {true} width={show?"100%":"880px"} style={{margin:'0 auto'}} height={show?"200px":window.innerWidth<1024?"380px":"380px"}>
+                    <video autoPlay = {true}   width={show?"100%":"880px"} style={{margin:'0 auto',borderRadius:'5px'}} height={show?"200px":window.innerWidth<1024?"380px":"380px"}>
                         <source src="/images/Website4.mp4" type="video/mp4" />
                     </video>
                 </div>
                 {/* <div style={{  background: '#EEE' }}>
                     <img src='/images/coupon.png' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div> */}
-                <div style={{ background: '#EEE' }}>
-                    <img src='/images/Website2.png' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
+                <div style={{ background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}`  }}>
+                    <img src='/images/Website2.png' style={{borderRadius:'5px'}} width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
-                <div style={{  background: '#EEE' }}>
-                    <img src='/images/Website3.png' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
+                <div style={{  background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}`  }}>
+                    <img src='/images/Website3.png' style={{borderRadius:'5px'}} width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
                 
             </Carousel>

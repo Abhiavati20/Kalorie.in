@@ -165,6 +165,9 @@ const OrderScreen = () => {
                                             <strong>Name{' '}:</strong>{' '}{order.user.name}
                                         </p>
                                         <p>
+                                            <strong>Phone Number{' '}:</strong>{' '}{order.user.phoneNumber}
+                                        </p>
+                                        <p>
                                             <strong>Email{' '}:</strong>{' '}
                                             <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
                                         </p>

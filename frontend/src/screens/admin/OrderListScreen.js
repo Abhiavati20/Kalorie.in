@@ -30,6 +30,7 @@ const OrderListScreen = () => {
         {
             navigate('/login')
         }
+        console.log(orders)
     }, [dispatch, navigate, userInfo])
 
     return (
@@ -46,6 +47,7 @@ const OrderListScreen = () => {
                             <tr>
                             <th>ID</th>
                             <th>USER</th>
+                            <th>PHONE NUMBER</th>
                             <th>DATE</th>
                             <th>TOTAL</th>
                             <th>PAID</th>
@@ -59,6 +61,7 @@ const OrderListScreen = () => {
                                     <tr key={order._id}>
                                         <td>{order._id}</td>
                                         <td>{order.user && order.user.name}</td>
+                                        <td>{order.user && order.user.phoneNumber}</td>
                                         <td>{order.createdAt.substring(0, 10).split("-").reverse().join("/")}</td>
                                         <td>Rs {order.totalPrice}</td>
                                         <td>

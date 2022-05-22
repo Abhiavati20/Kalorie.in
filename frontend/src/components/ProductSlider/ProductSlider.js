@@ -60,22 +60,24 @@ const ProductSlider = ({show}) => {
                 dotListClass='react-multi-carousel-dot'
                 itemClass="react-carousel-item"
             >
-                <div style={{  background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}` }}>
+                <div style={{  background: 'white',borderRadius:'5px', }}>
                     {/* <img src='/images/Website4.mp4' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" /> */}
-                    <video autoPlay = {true}   width={show?"100%":"880px"} style={{margin:'0 auto',borderRadius:'5px'}} height={show?"200px":window.innerWidth<1024?"380px":"380px"}>
+                    <video autoPlay = {true} loop={true}   width={show?"100%":"100%"} style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} height={show?"200px":window.innerWidth<1024?"380px":"370px"}>
                         <source src="/images/Website4.mp4" type="video/mp4" />
                     </video>
                 </div>
                 {/* <div style={{  background: '#EEE' }}>
                     <img src='/images/coupon.png' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div> */}
-                <div style={{ background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}`  }}>
-                    <img src='/images/Website2.png' style={{borderRadius:'5px'}} width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
+                <div style={{ background: 'white',borderRadius:'5px',  }}>
+                    <img src='/images/Website2.png' style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} width={show?"100%":"800px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
-                <div style={{  background: 'white',borderRadius:'5px',padding:`${show ? "0rem 0rem" :'0.25rem 1rem'}`  }}>
-                    <img src='/images/Website3.png' style={{borderRadius:'5px'}} width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
+                <div style={{  background: 'white',borderRadius:'5px'  }}>
+                    <img src='/images/Website3.png' style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} width={show?"100%":"800px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
-                
+                <div style={{  background: 'white',borderRadius:'5px'  }}>
+                    <img src='/images/Website5.png' style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px',}} width={show?"100%":"800px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
+                </div>
             </Carousel>
         </div>
     )

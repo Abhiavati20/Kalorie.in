@@ -164,7 +164,7 @@ const PlaceOrderScreen = () => {
             return null;
         })
         if(!filteredData){
-            toast.info("There is no coupon with this code!!")
+            toast.info("Coupon Not Available, Please check minimum purchase")
         }
         const arr = filteredData.users;
         let filteredUser;

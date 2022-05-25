@@ -149,11 +149,11 @@ const Header = () => {
                         <DropDownContainer>
                             <DropDownHeader onClick={()=>setIsOpen(!isOpen)}>
                                 {isOpen?<Times/>:<Bars/>}
-                            </DropDownHeader>
+                            </DropDownHeader >
                             {
                                 isOpen && (
-                                    <DropDownListContainer>
-                                        <DropDownList>
+                                    <DropDownListContainer >
+                                        <DropDownList  >
                                             {
                                                 userInfo.isAdmin ? (
                                                     <>
@@ -164,7 +164,7 @@ const Header = () => {
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <ListItem style={{margin:'0.5rem 0rem',}} onClick={()=>{setIsOpen(false)}} to="/profile"><Profile/> &nbsp;Profiles</ListItem>
+                                                        <ListItem style={{margin:'0.5rem 0rem',}} onClick={()=>{setIsOpen(false)}} to="/profile"><Profile/> &nbsp;Profile</ListItem>
                                                         <ListItem style={{margin:'0.5rem 0rem'}} onClick={()=>{setIsOpen(false)}} to = '/orders'><Shipping/>  &nbsp;Orders</ListItem>
                                                         {!show && <ListItem style={{margin:'0.5rem 0rem'}} onClick={()=>{setIsOpen(false)}} to = '/about'><AddressCard/>  &nbsp;About Us</ListItem>}
                                                         <ListItem style={{margin:'0.5rem 0rem'}} onClick={()=>{setIsOpen(false)}} to = '/contact'><Phone/>  &nbsp;Contact Us</ListItem>

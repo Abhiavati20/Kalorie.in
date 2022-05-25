@@ -60,15 +60,9 @@ const ProductSlider = ({show}) => {
                 dotListClass='react-multi-carousel-dot'
                 itemClass="react-carousel-item"
             >
-                <div style={{  background: 'white',borderRadius:'5px', }}>
-                    {/* <img src='/images/Website4.mp4' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" /> */}
-                    <video autoPlay = {true} loop={true}   width={show?"100%":"100%"} style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} height={show?"200px":window.innerWidth<1024?"380px":"370px"}>
-                        <source src="/images/Website4.mp4" type="video/mp4" />
-                    </video>
+                <div style={{ background: 'white',borderRadius:'5px',  }}>
+                    <img src='/images/Website6.png' style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} width={show?"100%":"800px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
-                {/* <div style={{  background: '#EEE' }}>
-                    <img src='/images/coupon.png' width={show?"100%":"880px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
-                </div> */}
                 <div style={{ background: 'white',borderRadius:'5px',  }}>
                     <img src='/images/Website2.png' style={{margin:`${show ? "0rem 0rem" :'0rem 0.25rem'}`,borderRadius:'5px'}} width={show?"100%":"800px"} height={show?"200px":window.innerWidth<1024?"380px":"380px"} alt="hello" />
                 </div>
